@@ -1,0 +1,11 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import mountainSVG from "/public/mountains.svg";
+---
+
+<Layout title="Learning">
+  <div class="w-screen h-screen flex justify-center items-center -mt-40">
+    <Image src={mountainSVG} alt="mountains" />
+  </div>
+</Layout>
