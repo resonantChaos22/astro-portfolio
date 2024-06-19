@@ -79,7 +79,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="relative w-screen bg-stone-300">
+    <div className="relative w-screen bg-stone-300 z-10">
       <div className="flex p-10 justify-between items-center">
         <div
           className="profile font-note text-4xl cursor-pointer"
@@ -123,7 +123,15 @@ const NavBar = () => {
 
         {matches && (
           <div className="contact-me relative font-note text-2xl cursor-pointer underline flex justify-center items-center">
-            <div>Get In Touch</div>
+            <RoughNotation
+              type="bracket"
+              show={true}
+              brackets={["left", "right"]}
+              color="#1E40AF"
+              strokeWidth={2}
+            >
+              Get In Touch
+            </RoughNotation>
           </div>
         )}
 

@@ -1,16 +1,17 @@
 ---
+import IntroComponent from "../components/IntroComponent.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Shreyash Portfolio">
-  <div class="w-screen h-screen flex flex-col">
-    <div class="content h-screen flex justify-center items-center -mt-20">
-      <div class="flex flex-col">
-        <div class="text-8xl font-note">Hi, I am Shreyash</div>
-        <div class="text-4xl font-note">
-          A Software Developer and an Amazing Human
-        </div>
-      </div>
+  <div class="w-screen h-screen">
+    <IntroComponent
+      title="Welcome"
+      subtitle="Seek The Great Perhaps"
+      client:load
+    />
+    <div class="flex justify-center items-center -mt-40 h-screen">
+      Hello World
     </div>
   </div>
 </Layout>
