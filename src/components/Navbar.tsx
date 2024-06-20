@@ -11,12 +11,20 @@ const URL = {
   EXPERIENCE: "/experience",
 };
 
+//TODO: How to handle `Contact Us` in mobile view
+
 const NavBar = () => {
   const [toggled, setToggled] = useState(false);
   const [nav, setNav] = useState<number>(0);
+  const [pause, setPause] = useState<boolean>(true);
   const matches = useMediaQuery("(min-width: 1280px)");
 
-  const navigate = (id: number) => {
+  const navigate = async (id: number, wait?: number) => {
+    setNav(id);
+
+    if (wait) {
+      await new Promise((resolve) => setTimeout(resolve, wait));
+    }
     if (id === nav) return;
     switch (id) {
       case 0:
@@ -35,8 +43,6 @@ const NavBar = () => {
       default:
         break;
     }
-
-    setNav(id);
   };
 
   useEffect(() => {
@@ -78,9 +84,30 @@ const NavBar = () => {
     closed: { rotate: 0, y: 0, width: "1rem" },
   };
 
+  const itemVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: { opacity: 1, x: 0 },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  useEffect(() => {
+    if (toggled) {
+      setPause(true);
+    }
+  }, [toggled]);
+
   return (
     <div className="relative w-screen bg-stone-300 z-10">
-      <div className="flex p-10 justify-between items-center">
+      <div className="flex p-10 justify-between items-center 2xl:pr-20 2xl:pl-20">
         <div
           className="profile font-note text-4xl cursor-pointer"
           onClick={() => navigate(0)}
@@ -167,8 +194,77 @@ const NavBar = () => {
         )}
 
         {!matches && toggled && (
-          <div className="h-screen w-screen z-2 bg-stone-300 flex justify-center items-center absolute top-0 right-0">
-            <div>Hello World</div>
+          <div className="h-screen w-screen z-2 bg-stone-300 flex justify-center items-center absolute top-0 right-0 overflow ">
+            <motion.div
+              className="flex flex-col justify-between space-y-10 text-4xl font-note"
+              initial="hidden"
+              animate="visible"
+              variants={containerVariants}
+            >
+              <motion.div
+                className="projects-route cursor-pointer"
+                variants={itemVariants}
+                onClick={() => navigate(0, 200)}
+                onAnimationComplete={() => nav === 0 && setPause(false)}
+              >
+                <UnderlineLink
+                  text="Home"
+                  rough={true}
+                  active={nav === 0}
+                  pause={pause}
+                />
+              </motion.div>
+              <motion.div
+                className="projects-route cursor-pointer"
+                variants={itemVariants}
+                onClick={() => navigate(1, 200)}
+                onAnimationComplete={() => nav === 1 && setPause(false)}
+              >
+                <UnderlineLink
+                  text="Projects"
+                  rough={true}
+                  active={nav === 1}
+                  pause={pause}
+                />
+              </motion.div>
+              <motion.div
+                className="learning-route cursor-pointer"
+                variants={itemVariants}
+                onClick={() => navigate(2, 200)}
+                onAnimationComplete={() => nav === 2 && setPause(false)}
+              >
+                <UnderlineLink
+                  text="Learning"
+                  rough={true}
+                  active={nav === 2}
+                  pause={pause}
+                />
+              </motion.div>
+              <motion.div
+                className="experience-route cursor-pointer"
+                variants={itemVariants}
+                onClick={() => navigate(3, 200)}
+                onAnimationComplete={() => nav === 3 && setPause(false)}
+              >
+                <UnderlineLink
+                  text="Experience"
+                  rough={true}
+                  active={nav === 3}
+                  pause={pause}
+                />
+              </motion.div>
+            </motion.div>
+            {/* <div className="fixed bottom-0 mb-20 font-note text-4xl">
+              <RoughNotation
+                type="bracket"
+                show={true}
+                brackets={["left", "right"]}
+                color="#1E40AF"
+                strokeWidth={2}
+              >
+                Get In Touch
+              </RoughNotation>
+            </div> */}
           </div>
         )}
       </div>

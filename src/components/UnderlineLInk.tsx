@@ -7,9 +7,10 @@ interface UnderlineLinkProps {
   href?: string;
   rough?: boolean;
   active?: boolean;
+  pause?: boolean;
 }
 
-const UnderlineLink = ({ text, rough, active }: UnderlineLinkProps) => {
+const UnderlineLink = ({ text, rough, active, pause }: UnderlineLinkProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   if (!rough) {
@@ -39,7 +40,7 @@ const UnderlineLink = ({ text, rough, active }: UnderlineLinkProps) => {
       <RoughNotation
         color="#7F1D1D"
         type="underline"
-        show={active}
+        show={!pause && active}
         iterations={2}
         strokeWidth={2}
         animationDuration={250}

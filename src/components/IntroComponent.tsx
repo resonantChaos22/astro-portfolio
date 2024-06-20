@@ -48,7 +48,7 @@ const IntroComponent = ({
             </motion.div>
             <motion.div
               key={1}
-              className="text-4xl font-note"
+              className="text-4xl font-note text-center"
               variants={containerVariants}
               transition={{ duration: 0.75, type: "spring", ease: "easeIn" }}
             >
