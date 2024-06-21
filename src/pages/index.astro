@@ -4,14 +4,38 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Shreyash Portfolio">
-  <div class="w-screen h-screen">
+  <div class="w-screen">
     <IntroComponent
       title="Welcome"
       subtitle="Seek The Great Perhaps"
       client:load
     />
-    <div class="flex justify-center items-center -mt-40 h-screen">
-      Hello World
+    <div class="min-h-[85vh]">
+      <div
+        class="flex w-screen lg:flex-row flex-col min-h-[85vh] pt-0 p-10 2xl:pr-20 2xl:pl-20"
+      >
+        <div class="flex-1"></div>
+        <div class="flex-1 flex flex-col justify-center items-center">
+          <div class="flex flex-col justify-center font-note space-y-8">
+            <div class="xl:text-6xl text-5xl">Hey, I am Shreyash</div>
+            <div class="xl:text-4xl text-3xl text-gray-700">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo
+              nihil distinctio ipsum quam aut? Rerum similique autem beatae unde
+              itaque aliquid corrupti illum quo ut, nam, temporibus recusandae
+              reiciendis eum.
+            </div>
+            <div class="xl:text-4xl text-3xl text-gray-700">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo
+              nihil distinctio ipsum quam aut? Rerum similique autem beatae unde
+              itaque aliquid corrupti illum quo ut, nam, temporibus recusandae
+              reiciendis eum. Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Illo nihil distinctio ipsum quam aut? Rerum
+              similique autem beatae unde itaque aliquid corrupti illum quo ut,
+              nam, temporibus recusandae reiciendis eum.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </Layout>

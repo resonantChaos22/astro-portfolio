@@ -107,9 +107,9 @@ const NavBar = () => {
 
   return (
     <div className="relative w-screen bg-stone-300 z-10">
-      <div className="flex p-10 justify-between items-center 2xl:pr-20 2xl:pl-20">
+      <div className="flex pt-[5vh] pb-[5vh] pl-[10vw] pr-[10vw] h-[15vh] justify-between items-center 2xl:pr-[5vw] 2xl:pl-[5vw]">
         <div
-          className="profile font-note text-4xl cursor-pointer"
+          className="profile font-note text-4xl cursor-pointer flex flex-col justify-center items-center"
           onClick={() => navigate(0)}
         >
           SP

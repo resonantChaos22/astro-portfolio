@@ -31,7 +31,7 @@ const IntroComponent = ({
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="content h-screen flex justify-center items-center w-screen absolute bg-stone-300 z-2"
+          className="content h-screen flex justify-center items-center w-screen fixed inset-0 bg-stone-300 z-2"
           initial="hidden"
           animate="visible"
           exit="exit"
@@ -40,7 +40,7 @@ const IntroComponent = ({
           <div className="flex flex-col justify-center items-center">
             <motion.div
               key={0}
-              className="text-8xl font-note"
+              className="lg:text-8xl text-6xl font-note"
               variants={containerVariants}
               transition={{ duration: 0.75, type: "spring", ease: "easeIn" }}
             >
@@ -48,7 +48,7 @@ const IntroComponent = ({
             </motion.div>
             <motion.div
               key={1}
-              className="text-4xl font-note text-center"
+              className="lg:text-4xl text-2xl font-note text-center"
               variants={containerVariants}
               transition={{ duration: 0.75, type: "spring", ease: "easeIn" }}
             >
