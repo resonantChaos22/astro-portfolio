@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         note: ["Note", "sans-serif"],
+        test: ["Test", "sans-serif"]
       },
     },
   },

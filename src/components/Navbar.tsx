@@ -106,7 +106,12 @@ const NavBar = () => {
   }, [toggled]);
 
   return (
-    <div className="relative w-screen bg-stone-300 z-10">
+    <motion.div
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+      className="fixed w-screen bg-stone-300 z-10"
+    >
       <div className="flex pt-[5vh] pb-[5vh] pl-[10vw] pr-[10vw] h-[15vh] justify-between items-center 2xl:pr-[5vw] 2xl:pl-[5vw]">
         <div
           className="profile font-note text-4xl cursor-pointer flex flex-col justify-center items-center"
@@ -268,7 +273,7 @@ const NavBar = () => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
